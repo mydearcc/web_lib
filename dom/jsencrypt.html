@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../lib/jsencrypt.js"></script>
+		<script>
+			//公钥
+			var PUBLIC_KEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4spQh5cPTRlOFznPOnYW9uyT1nyHtDJTwqipI6mEb5zEC0Y7X5qga0uPRsdhKwmlZxpZFtwAOcj9bi84qbOL5p6760Iyixrp8Sdvcj4/Viug85xNH/IvmpZkiujSVaS6Ng0L7C95PXte82SueXyH5Tt3wyMZrpC+oYBLqlDABSwIDAQAB'
+			//私钥
+			var PRIVATE_KEY = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALiylCHlw9NGU4XOc86dhb27JPWfIe0MlPCqKkjqYRvnMQLRjtfmqBrS49Gx2ErCaVnGlkW3AA5yP1uLzips4vmnrvrQjKLGunxJ29yPj9WK6DznE0f8i+almSK6NJVpLo2DQvsL3k9e17zZK55fIflO3fDIxmukL6hgEuqUMAFLAgMBAAECgYEApJQMR4BT1MmP12W17+CRshU2w9++/Vn+xcz7zOl9Cr4iAB73qA8SsIRHGS3eTA+cjLDWaty8oiLPriWP2mIYhVMQn731A9U4VAbtLWzybVeHJ0O4+JfZz7ZaXyefBaPefufZhMR4ZkFfsSa7Lvm+B2F181pVFpQT1JaHzg0zs0ECQQD4ptESHBNqEiRo11nVwto0pQRjyxaH4URb1eMBVbl4QkkLvEZlO4owsWCAmR0nKIro3P+2mdz0/fIyie+ewC77AkEAvifqRiN4Dp44X0NjmdOZlJRKJidFJwv4xy4pOZfUJteL7/rfDxpzfsQ7wXAexiI622TF1C17kzTvZHqSqDSl8QJATMq4Ju+kz01rETXw+KOE4F1WTbua6bwYcIRN50uiTBGsnYM3+mu48fDV7OFcr4tF20TldG9wXflPo2wWJOEVoQJACqVHa1fO/9qBw2uNZu4+ud+3av1l1LLJ4bTG4A+M9AO7NNsxo7HSZ3Vq9wBk6Ki/7MpufNtzAKHFCTYHgd04sQJAdgweTVIliH/pd8Y/pduVnmIUfoZPxni7p+3YcPaX7HIpG85V/Fup+GDS8se2jJ1HFuqKq56lDxkQ77GWQAtHNA=='
+			//使用公钥加密
+			var encrypt = new JSEncrypt();
+			encrypt.setPublicKey(PUBLIC_KEY);
+			var encrypted = encrypt.encrypt('haha');
+			console.log('加密后数据:%o', encrypted);
+			//使用私钥解密
+			var decrypt = new JSEncrypt();
+			decrypt.setPrivateKey(PRIVATE_KEY);
+			var uncrypted = decrypt.decrypt(encrypted);
+			console.log('解密后数据:%o', uncrypted);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
